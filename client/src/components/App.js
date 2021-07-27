@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import GaleryComponent from './GaleryComponent'
 import axios from 'axios';
 
 const App = () => {
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/', {
@@ -21,10 +21,8 @@ const App = () => {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <h1>hi from here</h1>
+      <GaleryComponent />
     </div>
   );
 }
