@@ -49,6 +49,17 @@ const GaleryComponent = ({ productID }) => {
         NEXT
       </span>
 
+      <div style={{ position: 'absolute', top: '40px' }}>
+        {styleProduct.map((item) => (
+          <img
+            style={{ display: 'block', marginBottom: '5px' }}
+            width="40px"
+            height="40px"
+            src={item}
+          />
+        ))}
+      </div>
+
       <div style={{ display: 'flex', maxHeight: '600px' }}>
         <img width="100%" src={styleProduct[picIndex]} />
       </div>
