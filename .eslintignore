@@ -1,0 +1,6 @@
+# Ignore artifacts:
+public/
+bundle.js
+
+# Ignore all HTML files:
+*.html

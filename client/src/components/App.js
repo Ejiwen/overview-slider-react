@@ -1,30 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import GaleryComponent from './GaleryComponent'
-import axios from 'axios';
+import React from 'react';
+import GaleryComponent from './GaleryComponent';
+import { Container, RightSide } from './styles/Container.style';
 
-const App = () => {
-
-  useEffect(() => {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/', {
-    headers: {
-      Authorization: `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`
-    }
-    })
-    .then((res) => {
-      console.log(res.data)
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-  });
-
-
-  return (
-    <div>
-      <h1>hi from here</h1>
-      <GaleryComponent />
-    </div>
-  );
-}
+const App = () => (
+  <Container>
+    <GaleryComponent productID="25167" />
+    <RightSide>The Right Side Components </RightSide>
+  </Container>
+);
 
 export default App;
