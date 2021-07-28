@@ -12,5 +12,6 @@ export const RightSide = styled.div`
 
 export const StylesDiv = styled.div`
   background-color: red;
+  margin-top: 10px;
   width: 100%;
 `;

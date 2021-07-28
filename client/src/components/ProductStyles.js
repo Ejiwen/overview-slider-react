@@ -33,15 +33,19 @@ const ProductStyles = ({ productID, changeStyle }) => {
 
   return (
     <StylesDiv>
-      {styleID.map((elm) => (
-        <img
-          width="70px"
-          height="70px"
-          src={elm.thumbnail}
-          style={{ borderRadius: '100%', margin: '10px' }}
-          onClick={() => changeStyle(elm.id)}
-        />
-      ))}
+      <h4 style={{ display: 'inline-block' }}> STYLE > </h4>
+      <span style={{ fontSize: '.9em' }}> SELECTED STYLE</span>
+      <div>
+        {styleID.map((elm) => (
+          <img
+            width="70px"
+            height="70px"
+            src={elm.thumbnail}
+            style={{ borderRadius: '100%', margin: '10px' }}
+            onClick={() => changeStyle(elm.id)}
+          />
+        ))}
+      </div>
     </StylesDiv>
   );
 };

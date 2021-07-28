@@ -20,7 +20,7 @@ const App = () => {
       <GaleryComponent productID="25167" styleIndex={styleIndex} />
       <RightSide>
         <RatingComponent />
-        <InfoProduct />
+        <InfoProduct productID="25167" />
         <ProductStyles productID="25167" changeStyle={changeStyle} />
         <ProductSizes />
         <CheckBag />
