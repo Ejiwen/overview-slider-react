@@ -9,3 +9,8 @@ export const Container = styled.div`
 export const RightSide = styled.div`
   background-color: yellow;
 `;
+
+export const StylesDiv = styled.div`
+  background-color: red;
+  width: 100%;
+`;

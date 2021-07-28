@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const GaleryComponent = ({ productID }) => {
+const GaleryComponent = ({ productID, styleIndex }) => {
   const [styleProduct, setStyleProduct] = useState([]);
   const [picIndex, setPicIndex] = useState(2);
+  //const [styleID, setStyleID] = useState(styleIndex);
+  //setStyleProduct([]);
 
   useEffect(() => {
     axios
@@ -16,14 +18,19 @@ const GaleryComponent = ({ productID }) => {
         }
       )
       .then((res) => {
-        res.data.results[0].photos.map((item) =>
-          setStyleProduct((prevState) => [...prevState, item.url])
+        let i = 0;
+        setStyleProduct([]);
+        res.data.results[styleIndex].photos.map((item) =>
+          setStyleProduct((prevState) => [
+            ...prevState,
+            { id: i++, thumbnail: item.thumbnail_url, url: item.url },
+          ])
         );
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [styleIndex]);
 
   const carrousel = (dir) => {
     if (dir < 0) {
@@ -48,20 +55,25 @@ const GaleryComponent = ({ productID }) => {
       >
         NEXT
       </span>
-
-      <div style={{ position: 'absolute', top: '40px' }}>
+      <div style={{ position: 'absolute', top: '20px' }}>
         {styleProduct.map((item) => (
           <img
-            style={{ display: 'block', marginBottom: '5px' }}
+            style={{
+              display: 'block',
+              marginBottom: '5px',
+              marginLeft: '20px',
+            }}
             width="40px"
             height="40px"
-            src={item}
+            src={item.thumbnail}
+            onClick={() => setPicIndex(item.id)}
           />
         ))}
       </div>
-
       <div style={{ display: 'flex', maxHeight: '600px' }}>
-        <img width="100%" src={styleProduct[picIndex]} />
+        {styleProduct[picIndex] && (
+          <img width="100%" height="600px" src={styleProduct[picIndex].url} />
+        )}
       </div>
     </div>
   );
