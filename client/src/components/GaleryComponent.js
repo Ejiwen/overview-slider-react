@@ -46,14 +46,32 @@ const GaleryComponent = ({ productID, styleIndex }) => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <span style={{ position: 'absolute' }} onClick={() => carrousel(-1)}>
-        PREVIOUS
+      <span
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '80px',
+          transform: 'rotate(-180deg)',
+          fontSize: 'xx-large',
+          textShadow: '3px 1px 0px #ffffffed, 5px 0px 0px rgb(0 0 0 / 15%)',
+          cursor: 'pointer',
+        }}
+        onClick={() => carrousel(-1)}
+      >
+        ➜
       </span>
       <span
-        style={{ position: 'absolute', right: '0' }}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '20px',
+          fontSize: 'xx-large',
+          textShadow: '3px 1px 0px #ffffffed, 5px 0px 0px rgb(0 0 0 / 15%)',
+          cursor: 'pointer',
+        }}
         onClick={() => carrousel(1)}
       >
-        NEXT
+        ➜
       </span>
       <div style={{ position: 'absolute', top: '20px' }}>
         {styleProduct.map((item) => (
