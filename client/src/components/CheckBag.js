@@ -7,7 +7,13 @@ const CheckBag = () => {
 
   return (
     <BagDiv>
-      <div style={{ border: '1px solid green', padding: '5px 20px' }}>
+      <div
+        style={{
+          border: '1px solid green',
+          padding: '5px 20px',
+          marginRight: '20px',
+        }}
+      >
         {' '}
         ADD TO BAG{' '}
         <span onClick={() => setAddToBag(!addToBag)}>

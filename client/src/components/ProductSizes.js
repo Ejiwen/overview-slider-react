@@ -47,14 +47,17 @@ const ProductSizes = ({ productID, styleIndex }) => {
   return (
     <div>
       <div className="selectSize">
-        <select onChange={matchQuantity}>
+        <select
+          style={{ padding: '10px 10px', marginRight: '20px' }}
+          onChange={matchQuantity}
+        >
           <option>SELECT SIZE</option>
           {sizes.map((elm) => (
             <option value={elm.quantity}>{elm.size}</option>
           ))}
         </select>
 
-        <select onChange={matchQuantity}>
+        <select style={{ padding: '10px 10px' }} onChange={matchQuantity}>
           {quantity.map((elm) => (
             <option value={elm}>{elm}</option>
           ))}

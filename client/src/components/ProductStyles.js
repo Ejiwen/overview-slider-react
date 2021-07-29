@@ -33,7 +33,7 @@ const ProductStyles = ({ productID, changeStyle }) => {
 
   return (
     <StylesDiv>
-      <h4 style={{ display: 'inline-block' }}> STYLE > </h4>
+      <h4 style={{ display: 'inline-block', margin: '0px' }}> STYLE > </h4>
       <span style={{ fontSize: '.9em' }}> SELECTED STYLE</span>
       <div>
         {styleID.map((elm) => (
