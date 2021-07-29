@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 import axios from 'axios';
 
 const ProductSizes = ({ productID, styleIndex }) => {
@@ -34,7 +35,16 @@ const ProductSizes = ({ productID, styleIndex }) => {
   }, []);
 
   return (
-    <h1 onClick={() => console.log(sizes)}>Hello from ProductSizes ... </h1>
+    <div>
+      TEST
+      <div className="selectSize">
+        <select>
+          {sizes.map((elm) => (
+            <option>{elm.size}</option>
+          ))}
+        </select>
+      </div>
+    </div>
   );
 };
 
