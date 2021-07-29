@@ -10,7 +10,7 @@ const CheckBag = () => {
       <div
         style={{
           border: '1px solid green',
-          padding: '5px 20px',
+          padding: '10px 20px',
           marginRight: '20px',
         }}
       >
@@ -21,7 +21,7 @@ const CheckBag = () => {
         </span>
       </div>
       <div
-        style={{ border: '1px solid green', padding: '5px 20px' }}
+        style={{ border: '1px solid green', padding: '6px 20px' }}
         onClick={() => setFavorit(!favorit)}
       >
         {favorit ? '★' : '☆'}

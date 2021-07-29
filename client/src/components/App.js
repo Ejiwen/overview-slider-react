@@ -5,7 +5,7 @@ import InfoProduct from './InfoProduct.js';
 import ProductStyles from './ProductStyles.js';
 import ProductSizes from './ProductSizes.js';
 import CheckBag from './CheckBag.js';
-import { Container, RightSide } from './styles/Container.style';
+import { Container, RightSide, Navbar } from './styles/Container.style';
 
 const App = () => {
   const [styleIndex, setStyleIndex] = useState(0);
@@ -16,16 +16,39 @@ const App = () => {
   };
 
   return (
-    <Container>
-      <GaleryComponent productID="25167" styleIndex={styleIndex} />
-      <RightSide>
-        <RatingComponent />
-        <InfoProduct productID="25167" />
-        <ProductStyles productID="25167" changeStyle={changeStyle} />
-        <ProductSizes productID="25167" styleIndex={styleIndex} />
-        <CheckBag />
-      </RightSide>
-    </Container>
+    <div style={{ margin: '0 20px' }}>
+      <Navbar>
+        <h4
+          style={{
+            color: 'white',
+            textDecoration: 'underline',
+            fontWeight: 'bolder',
+          }}
+        >
+          007LY
+        </h4>
+        <div style={{ alignSelf: 'center' }}>
+          <input
+            style={{
+              background: 'none',
+              border: 'none',
+              borderBottom: '1px solid white',
+            }}
+          />
+          <span>🔍 </span>
+        </div>
+      </Navbar>
+      <Container>
+        <GaleryComponent productID="25167" styleIndex={styleIndex} />
+        <RightSide>
+          <RatingComponent />
+          <InfoProduct productID="25167" />
+          <ProductStyles productID="25167" changeStyle={changeStyle} />
+          <ProductSizes productID="25167" styleIndex={styleIndex} />
+          <CheckBag />
+        </RightSide>
+      </Container>
+    </div>
   );
 };
 
