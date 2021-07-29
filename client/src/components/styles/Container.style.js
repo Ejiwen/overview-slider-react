@@ -15,3 +15,9 @@ export const StylesDiv = styled.div`
   margin-top: 10px;
   width: 100%;
 `;
+
+export const BagDiv = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+`;

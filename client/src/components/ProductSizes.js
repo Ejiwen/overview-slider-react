@@ -46,7 +46,6 @@ const ProductSizes = ({ productID, styleIndex }) => {
 
   return (
     <div>
-      TEST
       <div className="selectSize">
         <select onChange={matchQuantity}>
           <option>SELECT SIZE</option>
