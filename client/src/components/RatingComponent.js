@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RatingComponent = () => {
-  return <h1>Hello from RatingComponent ... </h1>;
+  return <p>Hello from RatingComponent ... </p>;
 };
 
 export default RatingComponent;

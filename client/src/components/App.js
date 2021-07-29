@@ -22,7 +22,7 @@ const App = () => {
         <RatingComponent />
         <InfoProduct productID="25167" />
         <ProductStyles productID="25167" changeStyle={changeStyle} />
-        <ProductSizes />
+        <ProductSizes productID="25167" styleIndex={styleIndex} />
         <CheckBag />
       </RightSide>
     </Container>
