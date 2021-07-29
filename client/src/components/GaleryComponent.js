@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-const GaleryComponent = ({ productID, styleIndex }) => {
+const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
   const [picIndex, setPicIndex] = useState(1);
   //const [styleID, setStyleID] = useState(styleIndex);
@@ -59,6 +61,13 @@ const GaleryComponent = ({ productID, styleIndex }) => {
 
   return (
     <div style={{ position: 'relative' }}>
+      <span
+        style={{ position: 'absolute', top: '20px', right: '20px' }}
+        onClick={widenFn}
+      >
+        <i class="fa-solid fa-user"></i>
+      </span>
+
       <span
         style={{
           position: 'absolute',
