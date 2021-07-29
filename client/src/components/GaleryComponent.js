@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import axios from 'axios';
+import lazy from '../scripts/lazyLoad.js';
 
 const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
@@ -22,6 +23,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
         let i = 0;
         setStyleProduct([]);
         res.data.results[styleIndex].photos.map((item) =>
+          //item.url = item.url.replace(/&w=\d+/, "&w=10");
           setStyleProduct((prevState) => [
             ...prevState,
             { id: i++, thumbnail: item.thumbnail_url, url: item.url },
@@ -60,10 +62,17 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   return (
     <div style={{ position: 'relative' }}>
       <span
-        style={{ position: 'absolute', top: '20px', right: '20px' }}
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          color: 'white',
+          fontSize: '2rem',
+          cursor: 'pointer',
+        }}
         onClick={widenFn}
       >
-        WIDEN
+        ⊡
       </span>
 
       <span
@@ -112,11 +121,17 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
       </div>
       <div style={{ display: 'flex', maxHeight: '600px' }}>
         {styleProduct[picIndex] && (
-          <img width="100%" height="600px" src={styleProduct[picIndex].url} />
+          <img
+            width="100%"
+            height="600px"
+            src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=10')}
+          />
         )}
       </div>
+      {lazy.leazyImg()}
     </div>
   );
 };
 
 export default GaleryComponent;
+// {lazy.leazyImg()}
