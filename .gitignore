@@ -30,3 +30,4 @@ react-client/dist/bundle.js
 node_modules/
 bower_components/
 public/
+public/bundle.js

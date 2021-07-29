@@ -4,6 +4,8 @@ import axios from 'axios';
 
 const ProductSizes = ({ productID, styleIndex }) => {
   const [sizes, setSizes] = useState([]);
+  const [quantity, setQuantity] = useState([1]);
+  var k = 0;
   var arr = [];
   useEffect(() => {
     var i = 0;
@@ -34,13 +36,28 @@ const ProductSizes = ({ productID, styleIndex }) => {
       });
   }, []);
 
+  const matchQuantity = (e) => {
+    let arrQuantity = [];
+    for (let i = 1; i < e.target.value; i++) {
+      arrQuantity.push(i);
+    }
+    setQuantity(arrQuantity);
+  };
+
   return (
     <div>
       TEST
       <div className="selectSize">
-        <select>
+        <select onChange={matchQuantity}>
+          <option>SELECT SIZE</option>
           {sizes.map((elm) => (
-            <option>{elm.size}</option>
+            <option value={elm.quantity}>{elm.size}</option>
+          ))}
+        </select>
+
+        <select onChange={matchQuantity}>
+          {quantity.map((elm) => (
+            <option value={elm}>{elm}</option>
           ))}
         </select>
       </div>
