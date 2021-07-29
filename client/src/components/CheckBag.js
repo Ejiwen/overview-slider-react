@@ -16,7 +16,10 @@ const CheckBag = () => {
       >
         {' '}
         ADD TO BAG{' '}
-        <span onClick={() => setAddToBag(!addToBag)}>
+        <span
+          onClick={() => setAddToBag(!addToBag)}
+          style={{ marginLeft: '20px' }}
+        >
           {addToBag ? '✓' : '+'}
         </span>
       </div>

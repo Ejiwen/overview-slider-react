@@ -35,7 +35,7 @@ const ProductStyles = ({ productID, changeStyle }) => {
     <StylesDiv>
       <h4 style={{ display: 'inline-block', margin: '0px' }}> STYLE > </h4>
       <span style={{ fontSize: '.9em' }}> SELECTED STYLE</span>
-      <div>
+      <div style={{ cursor: 'pointer' }}>
         {styleID.map((elm) => (
           <img
             width="70px"

@@ -19,6 +19,7 @@ export const StylesDiv = styled.div`
 export const BagDiv = styled.div`
   margin-top: 10px;
   display: flex;
+  cursor: pointer;
 `;
 
 export const Navbar = styled.div`

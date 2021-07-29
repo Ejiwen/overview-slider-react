@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 import axios from 'axios';
 
 const GaleryComponent = ({ productID, styleIndex }) => {
   const [styleProduct, setStyleProduct] = useState([]);
-  const [picIndex, setPicIndex] = useState(2);
+  const [picIndex, setPicIndex] = useState(1);
   //const [styleID, setStyleID] = useState(styleIndex);
   //setStyleProduct([]);
 
@@ -42,6 +43,18 @@ const GaleryComponent = ({ productID, styleIndex }) => {
         setPicIndex(picIndex + dir);
       }
     }
+
+    if (picIndex + dir <= 0) {
+      $('.previousPic').hide();
+    } else {
+      $('.previousPic').show();
+    }
+
+    if (picIndex + dir >= styleProduct.length - 1) {
+      $('.nextPic').hide();
+    } else {
+      $('.nextPic').show();
+    }
   };
 
   return (
@@ -56,6 +69,7 @@ const GaleryComponent = ({ productID, styleIndex }) => {
           textShadow: '3px 1px 0px #ffffffed, 5px 0px 0px rgb(0 0 0 / 15%)',
           cursor: 'pointer',
         }}
+        className="previousPic"
         onClick={() => carrousel(-1)}
       >
         ➜
@@ -69,11 +83,12 @@ const GaleryComponent = ({ productID, styleIndex }) => {
           textShadow: '3px 1px 0px #ffffffed, 5px 0px 0px rgb(0 0 0 / 15%)',
           cursor: 'pointer',
         }}
+        className="nextPic"
         onClick={() => carrousel(1)}
       >
         ➜
       </span>
-      <div style={{ position: 'absolute', top: '20px' }}>
+      <div style={{ position: 'absolute', top: '20px', cursor: 'pointer' }}>
         {styleProduct.map((item) => (
           <img
             style={{
