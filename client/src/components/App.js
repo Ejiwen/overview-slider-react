@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import $ from 'jquery';
 import GaleryComponent from './GaleryComponent';
 import RatingComponent from './RatingComponent.js';
 import InfoProduct from './InfoProduct.js';
@@ -9,10 +10,22 @@ import { Container, RightSide, Navbar } from './styles/Container.style';
 
 const App = () => {
   const [styleIndex, setStyleIndex] = useState(0);
+  const [toggleWiden, setToggleWiden] = useState(true);
 
   const changeStyle = (styleid) => {
     //console.log(styleid);
     setStyleIndex(styleid);
+  };
+
+  const widenFn = () => {
+    if (toggleWiden) {
+      $('#RightSide').hide();
+      $('#container').css('grid-template-columns', '100% 0%');
+    } else {
+      $('#RightSide').show();
+      $('#container').css('grid-template-columns', '60% 40%');
+    }
+    setToggleWiden(!toggleWiden);
   };
 
   return (
@@ -38,9 +51,13 @@ const App = () => {
           <span>🔍 </span>
         </div>
       </Navbar>
-      <Container>
-        <GaleryComponent productID="25167" styleIndex={styleIndex} />
-        <RightSide>
+      <Container id="container">
+        <GaleryComponent
+          productID="25167"
+          styleIndex={styleIndex}
+          widenFn={widenFn}
+        />
+        <RightSide id="RightSide">
           <RatingComponent />
           <InfoProduct productID="25167" />
           <ProductStyles productID="25167" changeStyle={changeStyle} />

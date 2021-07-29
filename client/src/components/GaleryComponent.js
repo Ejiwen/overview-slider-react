@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import axios from 'axios';
 
-const GaleryComponent = ({ productID, styleIndex }) => {
+const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
   const [picIndex, setPicIndex] = useState(1);
   //const [styleID, setStyleID] = useState(styleIndex);
@@ -59,6 +59,13 @@ const GaleryComponent = ({ productID, styleIndex }) => {
 
   return (
     <div style={{ position: 'relative' }}>
+      <span
+        style={{ position: 'absolute', top: '20px', right: '20px' }}
+        onClick={widenFn}
+      >
+        WIDEN
+      </span>
+
       <span
         style={{
           position: 'absolute',
