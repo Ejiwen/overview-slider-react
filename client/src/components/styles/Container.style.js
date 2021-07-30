@@ -12,7 +12,7 @@ export const RightSide = styled.div`
 `;
 
 export const StylesDiv = styled.div`
-  margin-top: 20px;
+  margin: 20px 0 20px 0;
   width: 100%;
 `;
 
@@ -31,4 +31,16 @@ export const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+`;
+
+export const PortalImg = styled.div`
+  position: absolute;
+  top: 0;
+  margin: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  padding: 40px;
+  background-color: white;
 `;

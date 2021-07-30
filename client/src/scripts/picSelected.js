@@ -5,7 +5,7 @@ module.exports = {
 
     //image.style.borderBottom = '2px solid red';
     image.style.boxShadow =
-      'rgba(255,255,0, 1) 3px 3px, rgba(255,255,0, 0.5) 5px 5px';
+      'rgb(0 0 0) 4px 4px, rgb(255 255 255 / 72%) 6px 6px';
 
     for (let i = 0; i < images.length; i++) {
       if (i !== index) {

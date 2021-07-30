@@ -3,10 +3,12 @@ import $ from 'jquery';
 import axios from 'axios';
 import lazy from '../scripts/lazyLoad.js';
 import picSelected from '../scripts/picSelected.js';
+import ImageModal from '../scripts/ImageModal.js';
 
 const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
   const [picIndex, setPicIndex] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     axios
@@ -129,9 +131,13 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
             width="100%"
             height="600px"
             src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=10')}
+            onClick={() => setIsOpen(!isOpen)}
           />
         )}
       </div>
+      {styleProduct[picIndex] && (
+        <ImageModal isOpen={isOpen} imgUrl={styleProduct[picIndex].url} />
+      )}
       {lazy.leazyImg()}
     </div>
   );
