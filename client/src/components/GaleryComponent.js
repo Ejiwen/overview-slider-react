@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import axios from 'axios';
 import lazy from '../scripts/lazyLoad.js';
+import picSelected from '../scripts/picSelected.js';
 
 const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
   const [picIndex, setPicIndex] = useState(1);
-  //const [styleID, setStyleID] = useState(styleIndex);
-  //setStyleProduct([]);
 
   useEffect(() => {
     axios
@@ -109,13 +108,18 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
           <img
             style={{
               display: 'block',
-              marginBottom: '5px',
+              marginBottom: '15px',
               marginLeft: '20px',
+              border: '2px solid white',
             }}
             width="40px"
             height="40px"
             src={item.thumbnail}
-            onClick={() => setPicIndex(item.id)}
+            onClick={() => {
+              setPicIndex(item.id);
+              picSelected.SelectImg(item.id);
+            }}
+            data-id={item.id.toString()}
           />
         ))}
       </div>
