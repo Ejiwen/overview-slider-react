@@ -136,7 +136,11 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
         )}
       </div>
       {styleProduct[picIndex] && (
-        <ImageModal isOpen={isOpen} imgUrl={styleProduct[picIndex].url} />
+        <ImageModal
+          isOpen={isOpen}
+          imgUrl={styleProduct[picIndex].url}
+          onClickPic={setIsOpen}
+        />
       )}
       {lazy.leazyImg()}
     </div>
