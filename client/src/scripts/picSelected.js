@@ -14,4 +14,11 @@ module.exports = {
       }
     }
   },
+
+  ScrollThumbnails: function () {
+    //Document.getElementsByClassName('Thumbnails').scroll(0, 900);
+    jquery('.scrollClass').click(function () {
+      jquery('.Thumbnails').animate({ scrollTop: +400 }, 1000);
+    });
+  },
 };

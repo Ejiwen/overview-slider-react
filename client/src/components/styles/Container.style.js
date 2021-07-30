@@ -44,3 +44,18 @@ export const PortalImg = styled.div`
   padding: 40px;
   background-color: white;
 `;
+
+export const Thumbnails = styled.div`
+  position: absolute;
+  top: 30px;
+  cursor: pointer;
+  height: 295px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 10px;
+  }
+`;

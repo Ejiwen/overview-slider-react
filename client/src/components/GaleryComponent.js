@@ -4,6 +4,7 @@ import axios from 'axios';
 import lazy from '../scripts/lazyLoad.js';
 import picSelected from '../scripts/picSelected.js';
 import ImageModal from '../scripts/ImageModal.js';
+import { Thumbnails } from './styles/Container.style';
 
 const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
@@ -60,6 +61,14 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
     }
   };
 
+  const scrollFn = () => {
+    $('.thumbnails').animate({ scrollTop: +400 }, 1000);
+  };
+
+  const scrollFnTop = () => {
+    $('.thumbnails').animate({ scrollTop: -400 }, 1000);
+  };
+
   return (
     <div style={{ position: 'relative' }}>
       <span
@@ -105,7 +114,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
       >
         ➜
       </span>
-      <div style={{ position: 'absolute', top: '20px', cursor: 'pointer' }}>
+      <Thumbnails className="thumbnails">
         {styleProduct.map((item) => (
           <img
             style={{
@@ -124,7 +133,41 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
             data-id={item.id.toString()}
           />
         ))}
-      </div>
+      </Thumbnails>
+
+      <span
+        style={{
+          position: 'absolute',
+          top: '2px',
+          left: '35px',
+          cursor: 'pointer',
+          color: 'white',
+          textShadow:
+            'rgba(0,0,0, 0.4) 0px 5px, rgba(0,0,0, 0.3) 0px 10px, rgba(0,0,0, 0.2) 0px 15px, rgba(0,0,0, 0.1) 0px 20px, rgba(0,0,0, 0.05) 0px 25px',
+        }}
+        // onClick={picSelected.ScrollThumbnails}
+        onClick={scrollFnTop}
+        className="scrollClassTop"
+      >
+        ▲
+      </span>
+
+      <span
+        style={{
+          position: 'absolute',
+          top: '315px',
+          left: '35px',
+          cursor: 'pointer',
+          color: 'white',
+          textShadow:
+            'rgba(0,0,0, 0.4) 0px 5px, rgba(0,0,0, 0.3) 0px 10px, rgba(0,0,0, 0.2) 0px 15px, rgba(0,0,0, 0.1) 0px 20px, rgba(0,0,0, 0.05) 0px 25px',
+        }}
+        // onClick={picSelected.ScrollThumbnails}
+        onClick={scrollFn}
+        className="scrollClass"
+      >
+        ▼
+      </span>
       <div style={{ display: 'flex', maxHeight: '600px' }}>
         {styleProduct[picIndex] && (
           <img
