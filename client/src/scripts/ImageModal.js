@@ -2,12 +2,13 @@ import React from 'react';
 import $ from 'jquery';
 import ReactDOM from 'react-dom';
 import { PortalImg, ImgZoom } from '../components/styles/Container.style';
+import Zoom from './zoomImage.js';
 
 const ImageModal = ({ isOpen, imgUrl, onClickPic }) => {
   if (!isOpen) return null;
 
-  const hauteur = $(window).height() - 100 + 'px';
-  const longuer = $(window).width() - 400 + 'px';
+  const hauteur = $(window).height() - 10 + 'px';
+  const longuer = '800px';
 
   return ReactDOM.createPortal(
     <PortalImg>
@@ -15,14 +16,21 @@ const ImageModal = ({ isOpen, imgUrl, onClickPic }) => {
         style={{
           textAlign: 'center',
           cursor: 'pointer',
-          color: 'white',
+          color: 'black',
           fontWeight: 'bolder',
         }}
         onClick={() => onClickPic(!isOpen)}
       >
         [X] CLOSE
       </div>
-      <ImgZoom srcImg={imgUrl} height={hauteur} width={longuer} />
+      <ImgZoom
+        onMouseMove={Zoom.zoomer}
+        className="imagePortal"
+        srcImg={imgUrl}
+        height={hauteur}
+        width={longuer}
+      />
+      <div className="box"></div>
     </PortalImg>,
     document.getElementById('portal')
   );
@@ -30,6 +38,7 @@ const ImageModal = ({ isOpen, imgUrl, onClickPic }) => {
 
 export default ImageModal;
 /*
+const longuer = $(window).width() - 500 + 'px';
 <span style={{ cursor: 'pointer' }} onClick={() => onClickPic(!isOpen)}>
           [X] CLOSE
         </span>

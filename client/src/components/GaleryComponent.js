@@ -4,6 +4,7 @@ import axios from 'axios';
 import lazy from '../scripts/lazyLoad.js';
 import picSelected from '../scripts/picSelected.js';
 import ImageModal from '../scripts/ImageModal.js';
+import Zoom from '../scripts/zoomImage.js';
 import { Thumbnails } from './styles/Container.style';
 import { PortalImg, ImgZoom } from '../components/styles/Container.style';
 
