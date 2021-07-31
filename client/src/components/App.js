@@ -6,6 +6,7 @@ import InfoProduct from './InfoProduct.js';
 import ProductStyles from './ProductStyles.js';
 import ProductSizes from './ProductSizes.js';
 import CheckBag from './CheckBag.js';
+import SocialShare from './SocialShare.js';
 import { Container, RightSide, Navbar } from './styles/Container.style';
 
 const App = () => {
@@ -63,6 +64,7 @@ const App = () => {
           <ProductStyles productID="25167" changeStyle={changeStyle} />
           <ProductSizes productID="25167" styleIndex={styleIndex} />
           <CheckBag />
+          <SocialShare />
         </RightSide>
       </Container>
     </div>
