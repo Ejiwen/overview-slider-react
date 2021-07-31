@@ -36,13 +36,9 @@ export const Navbar = styled.div`
 export const PortalImg = styled.div`
   position: absolute;
   top: 0;
-  margin: 40px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  padding: 40px;
-  background-color: white;
 `;
 
 export const Thumbnails = styled.div`
@@ -59,3 +55,24 @@ export const Thumbnails = styled.div`
     height: 10px;
   }
 `;
+
+export const ImgZoom = styled.div`
+  background: url('${(props) => props.srcImg}') no-repeat top center;
+  background-size: contain;
+  width: ${(props) => props.height};
+  height: ${(props) => props.width};
+`;
+
+/*
+export const PortalImg = styled.div`
+  position: absolute;
+  top: 0;
+  margin: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  padding: 40px;
+  background-color: white;
+`;
+*/

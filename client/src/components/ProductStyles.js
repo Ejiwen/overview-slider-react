@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StylesDiv } from './styles/Container.style';
+import picSelected from '../scripts/picSelected.js';
 import axios from 'axios';
 
 const ProductStyles = ({ productID, changeStyle }) => {
@@ -35,15 +36,31 @@ const ProductStyles = ({ productID, changeStyle }) => {
     <StylesDiv>
       <h4 style={{ display: 'inline-block', margin: '0px' }}> STYLE > </h4>
       <span style={{ fontSize: '.9em' }}> SELECTED STYLE</span>
-      <div style={{ cursor: 'pointer', width: '354px' }}>
+      <div
+        id="styleList"
+        style={{ cursor: 'pointer', width: '354px', position: 'relative' }}
+      >
         {styleID.map((elm) => (
-          <img
-            width="70px"
-            height="70px"
-            src={elm.thumbnail}
-            style={{ borderRadius: '100%', margin: '10px' }}
-            onClick={() => changeStyle(elm.id)}
-          />
+          <figure
+            style={{ display: 'inline', margin: '0', position: 'relative' }}
+          >
+            <img
+              style={{ display: 'inline' }}
+              width="70"
+              height="70"
+              src={elm.thumbnail}
+              style={{ borderRadius: '100%', margin: '10px' }}
+              onClick={() => {
+                changeStyle(elm.id);
+                picSelected.SelectStyle(elm.id);
+              }}
+              data-style={elm.id.toString()}
+            />
+            <figcaption
+              data-caption={elm.id}
+              style={{ display: 'inline', margin: '0' }}
+            ></figcaption>
+          </figure>
         ))}
       </div>
     </StylesDiv>

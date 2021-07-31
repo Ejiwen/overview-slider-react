@@ -5,6 +5,7 @@ import lazy from '../scripts/lazyLoad.js';
 import picSelected from '../scripts/picSelected.js';
 import ImageModal from '../scripts/ImageModal.js';
 import { Thumbnails } from './styles/Container.style';
+import { PortalImg, ImgZoom } from '../components/styles/Container.style';
 
 const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
@@ -192,3 +193,4 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
 
 export default GaleryComponent;
 // {lazy.leazyImg()}
+// <ImgZoom srcImg={imgUrl} height={hauteur} width={longuer} />
