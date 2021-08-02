@@ -30,7 +30,7 @@ const InfoProduct = ({ productID }) => {
     <div>
       <span>{productInfo.category}</span>
       <h3 style={{ margin: '0px' }}>{productInfo.name}</h3>
-      <span>{productInfo.price}</span>
+      <span>{productInfo.price} $</span>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import { GrFacebook, GrLinkedin } from 'react-icons/gr';
 import { FaTwitterSquare } from 'react-icons/fa';
-import { Helmet } from 'react-helmet';
 
 const SocialShare = () => {
   const shareFb = () => {

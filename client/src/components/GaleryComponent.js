@@ -7,6 +7,8 @@ import ImageModal from '../scripts/ImageModal.js';
 import Zoom from '../scripts/zoomImage.js';
 import { Thumbnails } from './styles/Container.style';
 import { PortalImg, ImgZoom } from '../components/styles/Container.style';
+import { BsFullscreen } from 'react-icons/bs';
+import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
 
 const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
@@ -84,7 +86,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
         }}
         onClick={widenFn}
       >
-        ⊡
+        <BsFullscreen />
       </span>
 
       <span
@@ -92,7 +94,6 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
           position: 'absolute',
           top: '50%',
           left: '80px',
-          transform: 'rotate(-180deg)',
           fontSize: 'xx-large',
           textShadow: '3px 1px 0px #ffffffed, 5px 0px 0px rgb(0 0 0 / 15%)',
           cursor: 'pointer',
@@ -100,7 +101,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
         className="previousPic"
         onClick={() => carrousel(-1)}
       >
-        ➜
+        <ImArrowLeft style={{ color: 'white' }} />
       </span>
       <span
         style={{
@@ -114,7 +115,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
         className="nextPic"
         onClick={() => carrousel(1)}
       >
-        ➜
+        <ImArrowRight style={{ color: 'white' }} />
       </span>
       <Thumbnails className="thumbnails">
         {styleProduct.map((item) => (
@@ -140,7 +141,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
       <span
         style={{
           position: 'absolute',
-          top: '2px',
+          top: '5px',
           left: '35px',
           cursor: 'pointer',
           color: 'white',
@@ -157,12 +158,12 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
       <span
         style={{
           position: 'absolute',
-          top: '315px',
+          top: '318px',
           left: '35px',
           cursor: 'pointer',
           color: 'white',
           textShadow:
-            'rgba(0,0,0, 0.4) 0px 5px, rgba(0,0,0, 0.3) 0px 10px, rgba(0,0,0, 0.2) 0px 15px, rgba(0,0,0, 0.1) 0px 20px, rgba(0,0,0, 0.05) 0px 25px',
+            'rgb(0 0 0 / 40%) 0px -5px, rgb(0 0 0 / 30%) 0px -10px, rgb(0 0 0 / 20%) 0px -15px, rgb(0 0 0 / 10%) 0px -20px, rgb(0 0 0 / 5%) 0px -25px',
         }}
         // onClick={picSelected.ScrollThumbnails}
         onClick={scrollFn}
@@ -193,5 +194,3 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
 };
 
 export default GaleryComponent;
-// {lazy.leazyImg()}
-// <ImgZoom srcImg={imgUrl} height={hauteur} width={longuer} />
