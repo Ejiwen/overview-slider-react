@@ -5,5 +5,5 @@ import '@testing-library/jest-dom/extend-expect';
 
 it('should render a form to the page', () => {
   render(<App />);
-  expect(screen.getByText(/hello world/i)).toBeInTheDocument();
+  expect(screen.getByText(/hello world 2/i)).toBeInTheDocument();
 });
