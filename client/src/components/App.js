@@ -22,9 +22,13 @@ const App = () => {
     if (toggleWiden) {
       $('#RightSide').hide();
       $('#container').css('grid-template-columns', '100% 0%');
+      $('#container').css('height', '85vh');
+      $('.imgWiden').css('height', '85vh');
     } else {
       $('#RightSide').show();
       $('#container').css('grid-template-columns', '60% 40%');
+      $('#container').css('height', '600px');
+      $('.imgWiden').css('height', '600px');
     }
     setToggleWiden(!toggleWiden);
   };
@@ -54,6 +58,7 @@ const App = () => {
       </Navbar>
       <Container id="container">
         <GaleryComponent
+          id="galeryPart"
           productID="25167"
           styleIndex={styleIndex}
           widenFn={widenFn}

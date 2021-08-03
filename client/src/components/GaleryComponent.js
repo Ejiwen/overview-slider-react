@@ -148,7 +148,6 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
           textShadow:
             'rgba(0,0,0, 0.4) 0px 5px, rgba(0,0,0, 0.3) 0px 10px, rgba(0,0,0, 0.2) 0px 15px, rgba(0,0,0, 0.1) 0px 20px, rgba(0,0,0, 0.05) 0px 25px',
         }}
-        // onClick={picSelected.ScrollThumbnails}
         onClick={scrollFnTop}
         className="scrollClassTop"
       >
@@ -171,9 +170,10 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
       >
         ▼
       </span>
-      <div style={{ display: 'flex', maxHeight: '600px' }}>
+      <div className="imgGalery" style={{ display: 'flex', height: '80vh' }}>
         {styleProduct[picIndex] && (
           <img
+            className="imgWiden"
             width="100%"
             height="600px"
             src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=10')}
