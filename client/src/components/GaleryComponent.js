@@ -92,7 +92,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
       <span
         style={{
           position: 'absolute',
-          top: '50%',
+          top: '45%',
           left: '80px',
           fontSize: 'xx-large',
           textShadow: '3px 1px 0px #ffffffed, 5px 0px 0px rgb(0 0 0 / 15%)',
@@ -106,7 +106,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
       <span
         style={{
           position: 'absolute',
-          top: '50%',
+          top: '45%',
           right: '20px',
           fontSize: 'xx-large',
           textShadow: '3px 1px 0px #ffffffed, 5px 0px 0px rgb(0 0 0 / 15%)',
@@ -118,8 +118,9 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
         <ImArrowRight style={{ color: 'white' }} />
       </span>
       <Thumbnails className="thumbnails">
-        {styleProduct.map((item) => (
+        {styleProduct.map((item, index) => (
           <img
+            key={index}
             style={{
               display: 'block',
               marginBottom: '15px',

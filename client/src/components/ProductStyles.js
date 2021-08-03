@@ -40,8 +40,9 @@ const ProductStyles = ({ productID, changeStyle }) => {
         id="styleList"
         style={{ cursor: 'pointer', width: '354px', position: 'relative' }}
       >
-        {styleID.map((elm) => (
+        {styleID.map((elm, index) => (
           <figure
+            key={index}
             style={{ display: 'inline', margin: '0', position: 'relative' }}
           >
             <img
