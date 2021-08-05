@@ -14,7 +14,6 @@ const App = () => {
   const [toggleWiden, setToggleWiden] = useState(true);
 
   const changeStyle = (styleid) => {
-    //console.log(styleid);
     setStyleIndex(styleid);
   };
 
@@ -64,12 +63,20 @@ const App = () => {
           widenFn={widenFn}
         />
         <RightSide id="RightSide">
-          <RatingComponent />
-          <InfoProduct productID="25167" />
-          <ProductStyles productID="25167" changeStyle={changeStyle} />
-          <ProductSizes productID="25167" styleIndex={styleIndex} />
-          <CheckBag />
-          <SocialShare />
+          <RatingComponent id="RatingComponent" />
+          <InfoProduct data-testid="InfoProduct" productID="25167" />
+          <ProductStyles
+            data-testid="ProductStyles"
+            productID="25167"
+            changeStyle={changeStyle}
+          />
+          <ProductSizes
+            data-testid="ProductSizes"
+            productID="25167"
+            styleIndex={styleIndex}
+          />
+          <CheckBag data-testid="CheckBag" />
+          <SocialShare data-testid="SocialShare" />
         </RightSide>
       </Container>
     </div>
@@ -77,10 +84,3 @@ const App = () => {
 };
 
 export default App;
-
-/*
-<InfoProduct />
-      <ProductStyles />
-      <ProductSizes />
-      <CheckBag />
-*/

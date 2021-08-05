@@ -37,16 +37,3 @@ const ImageModal = ({ isOpen, imgUrl, onClickPic }) => {
 };
 
 export default ImageModal;
-/*
-const longuer = $(window).width() - 500 + 'px';
-<span style={{ cursor: 'pointer' }} onClick={() => onClickPic(!isOpen)}>
-          [X] CLOSE
-        </span>
-
-        <div
-        style={{ textAlign: 'center', cursor: 'pointer' }}
-        onClick={() => onClickPic(!isOpen)}
-      >
-        [X] CLOSE
-      </div>
-*/

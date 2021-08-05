@@ -21,7 +21,6 @@ module.exports = {
 
   testFn: function () {
     console.log('test');
-    //let b = jquery('.imagePortal');
     const b = document.querySelector('.imagePortal');
     console.log(b);
   },

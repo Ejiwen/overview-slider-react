@@ -17,19 +17,11 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productID}/styles`,
-        {
-          headers: {
-            Authorization: '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',
-          },
-        }
-      )
+      .get('/styles')
       .then((res) => {
         let i = 0;
         setStyleProduct([]);
         res.data.results[styleIndex].photos.map((item) =>
-          //item.url = item.url.replace(/&w=\d+/, "&w=10");
           setStyleProduct((prevState) => [
             ...prevState,
             { id: i++, thumbnail: item.thumbnail_url, url: item.url },
@@ -165,7 +157,6 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
           textShadow:
             'rgb(0 0 0 / 40%) 0px -5px, rgb(0 0 0 / 30%) 0px -10px, rgb(0 0 0 / 20%) 0px -15px, rgb(0 0 0 / 10%) 0px -20px, rgb(0 0 0 / 5%) 0px -25px',
         }}
-        // onClick={picSelected.ScrollThumbnails}
         onClick={scrollFn}
         className="scrollClass"
       >

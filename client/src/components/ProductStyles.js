@@ -9,14 +9,7 @@ const ProductStyles = ({ productID, changeStyle }) => {
   useEffect(() => {
     var i = 0;
     axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productID}/styles`,
-        {
-          headers: {
-            Authorization: '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',
-          },
-        }
-      )
+      .get('/styles')
       .then((res) => {
         res.data.results.map((item) =>
           setStyleID((prevState) => {

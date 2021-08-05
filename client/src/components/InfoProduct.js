@@ -6,14 +6,7 @@ const InfoProduct = ({ productID }) => {
   var arr = [];
   useEffect(() => {
     axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productID}`,
-        {
-          headers: {
-            Authorization: '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',
-          },
-        }
-      )
+      .get('/product')
       .then((res) => {
         setProductInfo({
           category: res.data.category,
@@ -36,11 +29,3 @@ const InfoProduct = ({ productID }) => {
 };
 
 export default InfoProduct;
-
-/*
-{productInfo.map((item) => {
-          if (item.id === Number(productID)) {
-            console.log(item.name);
-          }
-        })}
-*/

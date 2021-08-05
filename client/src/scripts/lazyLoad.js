@@ -1,4 +1,18 @@
+/*
+module.exports = {
+  leazyImg: function () {
+    const images = document.querySelectorAll('img');
+
+    images.forEach((image) => {
+      const newURL = image.src.replace(/&w=\d+/, '&w=1800');
+      image.src = newURL;
+    });
+  },
+};
+*/
+
 var imagesOptions = {};
+
 let observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;

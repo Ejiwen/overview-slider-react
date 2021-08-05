@@ -14,8 +14,7 @@ const CheckBag = () => {
           marginRight: '20px',
         }}
       >
-        {' '}
-        ADD TO BAG{' '}
+        ADD TO BAG
         <span
           onClick={() => setAddToBag(!addToBag)}
           style={{ marginLeft: '20px' }}
