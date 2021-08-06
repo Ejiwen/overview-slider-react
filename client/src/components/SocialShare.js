@@ -34,6 +34,7 @@ const SocialShare = () => {
       <GrFacebook onClick={shareFb} className="socialBtn" />
       <FaTwitterSquare onClick={shareTwitter} className="socialBtn" />
       <GrLinkedin onClick={shareLinkdin} className="socialBtn" />
+      <span>Hello</span>
     </div>
   );
 };

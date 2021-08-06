@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { InfoContext } from './App';
 import axios from 'axios';
 
-const InfoProduct = ({ productID }) => {
-  const [productInfo, setProductInfo] = useState({});
-  var arr = [];
-  useEffect(() => {
-    axios
-      .get('/product')
-      .then((res) => {
-        setProductInfo({
-          category: res.data.category,
-          name: res.data.name,
-          price: res.data.default_price,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [productID]);
-
+const InfoProduct = () => {
+  const info = useContext(InfoContext);
   return (
     <div>
-      <span>{productInfo.category}</span>
-      <h3 style={{ margin: '0px' }}>{productInfo.name}</h3>
-      <span>{productInfo.price} $</span>
+      <span>{info.category}</span>
+      <h3 style={{ margin: '0px' }}>{info.name}</h3>
+      <span>{info.price} $</span>
     </div>
   );
 };
