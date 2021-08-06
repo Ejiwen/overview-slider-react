@@ -16,7 +16,7 @@ app.get('/styles', (req, res) => {
       `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/25167/styles`,
       {
         headers: {
-          Authorization: process.env.Authorization,
+          Authorization: process.env.Authorization || secrete,
         },
       }
     )

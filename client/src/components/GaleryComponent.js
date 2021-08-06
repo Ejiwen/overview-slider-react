@@ -66,8 +66,9 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div id="GalleyContainer" style={{ position: 'relative' }}>
       <span
+        id="fullScreenIcon"
         style={{
           position: 'absolute',
           top: '20px',
@@ -159,6 +160,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
         }}
         onClick={scrollFn}
         className="scrollClass"
+        id="scrollDown"
       >
         ▼
       </span>
@@ -168,7 +170,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
             className="imgWiden"
             width="100%"
             height="600px"
-            src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=10')}
+            src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=600')}
             onClick={() => setIsOpen(!isOpen)}
           />
         )}

@@ -7,6 +7,7 @@ import ProductStyles from './ProductStyles.js';
 import ProductSizes from './ProductSizes.js';
 import CheckBag from './CheckBag.js';
 import SocialShare from './SocialShare.js';
+import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
 import { Container, RightSide, Navbar } from './styles/Container.style';
 
 const App = () => {
@@ -84,3 +85,4 @@ const App = () => {
 };
 
 export default App;
+//<ImArrowRight style={{ color: 'white' }} />

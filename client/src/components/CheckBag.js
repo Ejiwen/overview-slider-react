@@ -15,16 +15,17 @@ const CheckBag = () => {
         }}
       >
         ADD TO BAG
-        <span
+        <button
           onClick={() => setAddToBag(!addToBag)}
           style={{ marginLeft: '20px' }}
         >
           {addToBag ? '✓' : '+'}
-        </span>
+        </button>
       </div>
       <div
         style={{ border: '1px solid green', padding: '6px 20px' }}
         onClick={() => setFavorit(!favorit)}
+        role="button"
       >
         {favorit ? '★' : '☆'}
       </div>
