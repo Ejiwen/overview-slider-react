@@ -1,34 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import $ from 'jquery';
-import axios from 'axios';
+import { StyleContext } from './App';
 
-const ProductSizes = ({ productID, styleIndex }) => {
-  const [sizes, setSizes] = useState([]);
+const ProductSizes = ({ sizes }) => {
   const [quantity, setQuantity] = useState([1]);
-  var k = 0;
-  var arr = [];
-  useEffect(() => {
-    var i = 0;
-    var listKeys;
-
-    axios
-      .get('/styles')
-      .then((res) => {
-        res.data.results.map((item) => {
-          listKeys = Object.keys(item.skus);
-          arr.push({ id: i++, skus: item.skus });
-        });
-        arr = arr.filter((item) => item.id === styleIndex);
-        let listKeys = Object.keys(arr[0].skus);
-        listKeys.map((elm) =>
-          setSizes((prevState) => [...prevState, arr[0].skus[elm]])
-        );
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
   const matchQuantity = (e) => {
     let arrQuantity = [];
     for (let i = 1; i < e.target.value; i++) {
@@ -36,20 +11,22 @@ const ProductSizes = ({ productID, styleIndex }) => {
     }
     setQuantity(arrQuantity);
   };
-
+  // const sizes = useContext(StyleContext);
   return (
     <div>
+      {console.log(sizes)}
       <div className="selectSize">
         <select
           style={{ padding: '10px 10px', marginRight: '20px' }}
           onChange={matchQuantity}
         >
           <option>SELECT SIZE</option>
-          {sizes.map((elm, index) => (
-            <option key={index} value={elm.quantity}>
-              {elm.size}
-            </option>
-          ))}
+          {sizes &&
+            sizes.map((elm, index) => (
+              <option key={index} value={elm.quantity}>
+                {elm.size}
+              </option>
+            ))}
         </select>
 
         <select style={{ padding: '10px 10px' }} onChange={matchQuantity}>
