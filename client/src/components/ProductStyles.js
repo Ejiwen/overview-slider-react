@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const ProductStyles = ({ productID, changeStyle }) => {
   const [styleID, setStyleID] = useState([]);
+  const [styleName, setStyleName] = useState('SELECTED STYLE');
 
   useEffect(() => {
     var i = 0;
@@ -22,7 +23,11 @@ const ProductStyles = ({ productID, changeStyle }) => {
           setStyleID((prevState) => {
             return [
               ...prevState,
-              { id: i++, thumbnail: item.photos[0].thumbnail_url },
+              {
+                id: i++,
+                name: item.name,
+                thumbnail: item.photos[0].thumbnail_url,
+              },
             ];
           })
         );
@@ -35,7 +40,7 @@ const ProductStyles = ({ productID, changeStyle }) => {
   return (
     <StylesDiv>
       <h4 style={{ display: 'inline-block', margin: '0px' }}> STYLE > </h4>
-      <span style={{ fontSize: '.9em' }}> SELECTED STYLE</span>
+      <span style={{ fontSize: '.9em' }}> {styleName} </span>
       <div
         id="styleList"
         style={{ cursor: 'pointer', width: '354px', position: 'relative' }}
@@ -54,6 +59,7 @@ const ProductStyles = ({ productID, changeStyle }) => {
               onClick={() => {
                 changeStyle(elm.id);
                 picSelected.SelectStyle(elm.id);
+                setStyleName(elm.name);
               }}
               data-style={elm.id.toString()}
             />
