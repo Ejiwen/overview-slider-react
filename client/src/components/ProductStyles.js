@@ -14,7 +14,7 @@ const ProductStyles = ({ productID, changeStyle }) => {
         `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productID}/styles`,
         {
           headers: {
-            Authorization: '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',
+            Authorization: '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',
           },
         }
       )

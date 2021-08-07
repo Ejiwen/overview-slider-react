@@ -3,7 +3,11 @@ import { render, screen } from '@testing-library/react';
 import App from '../components/App.js';
 import '@testing-library/jest-dom/extend-expect';
 
-it('should render a form to the page', () => {
+test('should render a form to the page', () => {
+  render(<p> Hello Jest!</p>);
+  expect(screen.getByText('Hello Jest!')).toBeInTheDocument();
+});
+
+it('renders App', () => {
   render(<App />);
-  expect(screen.getByText(/hello world 2/i)).toBeInTheDocument();
 });
