@@ -1,3 +1,4 @@
+/*
 module.exports = {
   leazyImg: function () {
     const images = document.querySelectorAll('img');
@@ -8,8 +9,8 @@ module.exports = {
     });
   },
 };
+*/
 
-/*
 var imagesOptions = {};
 
 let observer = new IntersectionObserver((entries, observer) => {
@@ -31,4 +32,3 @@ module.exports = {
     });
   },
 };
-*/

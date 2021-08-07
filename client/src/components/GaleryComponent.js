@@ -170,7 +170,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
             className="imgWiden"
             width="100%"
             height="600px"
-            src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=600')}
+            src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=10')}
             onClick={() => setIsOpen(!isOpen)}
           />
         )}
