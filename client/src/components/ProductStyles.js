@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from '../data/styles.js';
 import { StylesDiv } from './styles/Container.style';
 import picSelected from '../scripts/picSelected.js';
 import axios from 'axios';
@@ -9,25 +10,19 @@ const ProductStyles = ({ productID, changeStyle }) => {
 
   useEffect(() => {
     var i = 0;
-    axios
-      .get('/styles')
-      .then((res) => {
-        res.data.results.map((item) =>
-          setStyleID((prevState) => {
-            return [
-              ...prevState,
-              {
-                id: i++,
-                name: item.name,
-                thumbnail: item.photos[0].thumbnail_url,
-              },
-            ];
-          })
-        );
+
+    styles.results.map((item) =>
+      setStyleID((prevState) => {
+        return [
+          ...prevState,
+          {
+            id: i++,
+            name: item.name,
+            thumbnail: item.photos[0].thumbnail_url,
+          },
+        ];
       })
-      .catch((error) => {
-        console.error(error);
-      });
+    );
   }, []);
 
   return (

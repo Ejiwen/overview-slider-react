@@ -9,6 +9,7 @@ import { Thumbnails } from './styles/Container.style';
 import { PortalImg, ImgZoom } from '../components/styles/Container.style';
 import { BsFullscreen } from 'react-icons/bs';
 import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
+import styles from '../data/styles.js';
 
 const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [styleProduct, setStyleProduct] = useState([]);
@@ -16,21 +17,15 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    axios
-      .get('/styles')
-      .then((res) => {
-        let i = 0;
-        setStyleProduct([]);
-        res.data.results[styleIndex].photos.map((item) =>
-          setStyleProduct((prevState) => [
-            ...prevState,
-            { id: i++, thumbnail: item.thumbnail_url, url: item.url },
-          ])
-        );
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    let i = 0;
+    setStyleProduct([]);
+    styles.results[styleIndex].photos.map((item) =>
+      //item.url = item.url.replace(/&w=\d+/, "&w=10");
+      setStyleProduct((prevState) => [
+        ...prevState,
+        { id: i++, thumbnail: item.thumbnail_url, url: item.url },
+      ])
+    );
   }, [styleIndex]);
 
   const carrousel = (dir) => {
@@ -170,7 +165,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
             className="imgWiden"
             width="100%"
             height="600px"
-            src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=10')}
+            src={styleProduct[picIndex].url.replace(/&w=\d+/, '&w=1000')}
             onClick={() => setIsOpen(!isOpen)}
           />
         )}
@@ -182,7 +177,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
           onClickPic={setIsOpen}
         />
       )}
-      {lazy.leazyImg()}
+      {/* lazy.leazyImg() */}
     </div>
   );
 };

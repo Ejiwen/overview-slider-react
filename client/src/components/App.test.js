@@ -99,10 +99,11 @@ describe('test the behavior of CheckBag component', () => {
     expect(btn).toHaveTextContent('✓');
   });
 
-  it('fill the start if we add product to our favorite', () => {
-    render(<CheckBag />);
-    const btn = screen.getByRole('button', { name: '☆' });
-    userEvent.click(btn);
-    expect(btn).toHaveTextContent('★');
-  });
+test('should render a form to the page', () => {
+  render(<p> Hello Jest!</p>);
+  expect(screen.getByText('Hello Jest!')).toBeInTheDocument();
+});
+
+it('renders App', () => {
+  render(<App />);
 });
