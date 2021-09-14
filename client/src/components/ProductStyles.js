@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from '../data/styles.js';
 import { StylesDiv } from './styles/Container.style';
 import picSelected from '../scripts/picSelected.js';
 import axios from 'axios';
@@ -9,32 +10,19 @@ const ProductStyles = ({ productID, changeStyle }) => {
 
   useEffect(() => {
     var i = 0;
-    axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productID}/styles`,
-        {
-          headers: {
-            Authorization: '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',
+
+    styles.results.map((item) =>
+      setStyleID((prevState) => {
+        return [
+          ...prevState,
+          {
+            id: i++,
+            name: item.name,
+            thumbnail: item.photos[0].thumbnail_url,
           },
-        }
-      )
-      .then((res) => {
-        res.data.results.map((item) =>
-          setStyleID((prevState) => {
-            return [
-              ...prevState,
-              {
-                id: i++,
-                name: item.name,
-                thumbnail: item.photos[0].thumbnail_url,
-              },
-            ];
-          })
-        );
+        ];
       })
-      .catch((error) => {
-        console.error(error);
-      });
+    );
   }, []);
 
   return (

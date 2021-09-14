@@ -1,29 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import product_info from '../data/product_info.js';
 import axios from 'axios';
 
 const InfoProduct = ({ productID }) => {
   const [productInfo, setProductInfo] = useState({});
   var arr = [];
   useEffect(() => {
-    axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productID}`,
-        {
-          headers: {
-            Authorization: '',
-          },
-        }
-      )
-      .then((res) => {
-        setProductInfo({
-          category: res.data.category,
-          name: res.data.name,
-          price: res.data.default_price,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    setProductInfo({
+      category: product_info.category,
+      name: product_info.name,
+      price: product_info.default_price,
+    });
   }, [productID]);
 
   return (
@@ -36,11 +23,3 @@ const InfoProduct = ({ productID }) => {
 };
 
 export default InfoProduct;
-
-/*
-{productInfo.map((item) => {
-          if (item.id === Number(productID)) {
-            console.log(item.name);
-          }
-        })}
-*/

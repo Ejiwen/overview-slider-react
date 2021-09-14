@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from '../data/styles.js';
 import $ from 'jquery';
 import axios from 'axios';
 
@@ -11,29 +12,17 @@ const ProductSizes = ({ productID, styleIndex }) => {
     var i = 0;
     var listKeys;
 
-    axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productID}/styles`,
-        {
-          headers: {
-            Authorization: '',
-          },
-        }
-      )
-      .then((res) => {
-        res.data.results.map((item) => {
-          listKeys = Object.keys(item.skus);
-          arr.push({ id: i++, skus: item.skus });
-        });
-        arr = arr.filter((item) => item.id === styleIndex);
-        let listKeys = Object.keys(arr[0].skus);
-        listKeys.map((elm) =>
-          setSizes((prevState) => [...prevState, arr[0].skus[elm]])
-        );
-      })
-      .catch((error) => {
-        console.error(error);
+    (() => {
+      styles.results.map((item) => {
+        listKeys = Object.keys(item.skus);
+        arr.push({ id: i++, skus: item.skus });
       });
+      arr = arr.filter((item) => item.id === styleIndex);
+      let listKeys = Object.keys(arr[0].skus);
+      listKeys.map((elm) =>
+        setSizes((prevState) => [...prevState, arr[0].skus[elm]])
+      );
+    })();
   }, []);
 
   const matchQuantity = (e) => {

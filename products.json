@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "slogan": "",
+  "description": "",
+  "category": "",
+  "default_price": "",
+  "features": [
+    {
+      "feature": "",
+      "value": ""
+    }
+  ],
+  "styles": [
+    {
+    "id": "",
+    "name": "",
+    "original_price": "",
+    "sale_price": "",
+    "default": ""
+  },
+  "skus": [
+    {
+    "id": "",
+    "quantity": "",
+    "size": ""
+   }
+  ],
+  "photos": [
+    {
+      "id": "",
+      "thumbnail_url": "",
+      "url": ""
+    },
+  ] ,
+  ],
+}
