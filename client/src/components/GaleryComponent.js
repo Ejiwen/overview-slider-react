@@ -18,6 +18,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
 
   useEffect(() => {
     let i = 0;
+
     setStyleProduct([]);
     styles.results[styleIndex].photos.map((item) =>
       //item.url = item.url.replace(/&w=\d+/, "&w=10");
@@ -177,7 +178,7 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
           onClickPic={setIsOpen}
         />
       )}
-      {/* lazy.leazyImg() */}
+      {/*lazy.leazyImg()*/}
     </div>
   );
 };

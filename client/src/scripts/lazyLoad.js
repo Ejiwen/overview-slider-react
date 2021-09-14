@@ -26,7 +26,6 @@ let observer = new IntersectionObserver((entries, observer) => {
 module.exports = {
   leazyImg: function () {
     const images = document.querySelectorAll('img');
-
     images.forEach((image) => {
       observer.observe(image);
     });
