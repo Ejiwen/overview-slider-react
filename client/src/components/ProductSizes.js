@@ -12,10 +12,21 @@ const ProductSizes = ({ productID, styleIndex }) => {
     var i = 0;
     var listKeys;
 
-    (() => {
-      styles.results.map((item) => {
-        listKeys = Object.keys(item.skus);
-        arr.push({ id: i++, skus: item.skus });
+    axios
+      .get(`/products/${productID}/styles`)
+      .then((res) => {
+        res.data.results.map((item) => {
+          listKeys = Object.keys(item.skus);
+          arr.push({ id: i++, skus: item.skus });
+        });
+        arr = arr.filter((item) => item.id === styleIndex);
+        let listKeys = Object.keys(arr[0].skus);
+        listKeys.map((elm) =>
+          setSizes((prevState) => [...prevState, arr[0].skus[elm]])
+        );
+      })
+      .catch((error) => {
+        console.error(error);
       });
       arr = arr.filter((item) => item.id === styleIndex);
       let listKeys = Object.keys(arr[0].skus);

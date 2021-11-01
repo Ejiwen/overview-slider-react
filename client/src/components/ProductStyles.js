@@ -10,17 +10,21 @@ const ProductStyles = ({ productID, changeStyle }) => {
 
   useEffect(() => {
     var i = 0;
-
-    styles.results.map((item) =>
-      setStyleID((prevState) => {
-        return [
-          ...prevState,
-          {
-            id: i++,
-            name: item.name,
-            thumbnail: item.photos[0].thumbnail_url,
-          },
-        ];
+    axios
+      .get(`/products/${productID}/styles`)
+      .then((res) => {
+        res.data.results.map((item) =>
+          setStyleID((prevState) => {
+            return [
+              ...prevState,
+              {
+                id: i++,
+                name: item.name,
+                thumbnail: item.photos[0].thumbnail_url,
+              },
+            ];
+          })
+        );
       })
     );
   }, []);

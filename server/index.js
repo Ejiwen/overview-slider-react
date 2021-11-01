@@ -1,36 +1,20 @@
+require('newrelic');
 const express = require('express');
-const axios = require('axios');
 require('dotenv').config();
-
+var bodyParser = require('body-parser');
 const app = express();
-const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static('public'));
+var controllers = require('./controllers');
 
-app.get('/styles', (req, res) => {
-  axios
-    .get(
-      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/25167/styles`,
-      {
-        headers: {
-          Authorization: process.env.Authorization || secrete,
-        },
-      }
-    )
-    .then((result) => res.send(result.data));
-});
+app.get(`/products/:product_id`, controllers.products.getOne);
 
-app.get('/product', (req, res) => {
-  axios
-    .get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/25167`, {
-      headers: {
-        Authorization: process.env.Authorization,
-      },
-    })
-    .then((result) => res.send(result.data));
-});
+app.get(`/products/:product_id/related`, controllers.related.getAll);
 
-app.listen(3000, () => console.log('SERVER IS LISTENING NOW ... !!!'));
+app.get(`/products/:product_id/styles`, controllers.styles.getStyles);
+
+app.get('/products', controllers.products.getAll);
+
+app.listen(3000, console.log('the server is running now on port 3000 .... '));

@@ -6,11 +6,18 @@ const InfoProduct = ({ productID }) => {
   const [productInfo, setProductInfo] = useState({});
   var arr = [];
   useEffect(() => {
-    setProductInfo({
-      category: product_info.category,
-      name: product_info.name,
-      price: product_info.default_price,
-    });
+    axios
+      .get(`/products/${productID}`)
+      .then((res) => {
+        setProductInfo({
+          category: res.data.category,
+          name: res.data.name,
+          price: res.data.default_price,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, [productID]);
 
   return (

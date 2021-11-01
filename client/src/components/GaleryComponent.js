@@ -17,16 +17,22 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    let i = 0;
-
-    setStyleProduct([]);
-    styles.results[styleIndex].photos.map((item) =>
-      //item.url = item.url.replace(/&w=\d+/, "&w=10");
-      setStyleProduct((prevState) => [
-        ...prevState,
-        { id: i++, thumbnail: item.thumbnail_url, url: item.url },
-      ])
-    );
+    axios
+      .get(`/products/${productID}/styles`)
+      .then((res) => {
+        let i = 0;
+        setStyleProduct([]);
+        res.data.results[styleIndex].photos.map((item) =>
+          //item.url = item.url.replace(/&w=\d+/, "&w=10");
+          setStyleProduct((prevState) => [
+            ...prevState,
+            { id: i++, thumbnail: item.thumbnail_url, url: item.url },
+          ])
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, [styleIndex]);
 
   const carrousel = (dir) => {
