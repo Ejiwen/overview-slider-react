@@ -174,6 +174,9 @@ const GaleryComponent = ({ productID, styleIndex, widenFn }) => {
             height="600px"
             src={styleProduct[picIndex].url.replace(/&w=\d+/, "&w=10")}
             onClick={() => setIsOpen(!isOpen)}
+            style={{
+                  objectFit: "contain";
+                  }}
           />
         )}
       </div>
